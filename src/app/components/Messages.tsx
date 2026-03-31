@@ -41,34 +41,34 @@ export function Messages() {
   ];
 
   return (
-    <div className="max-w-md mx-auto space-y-6 pb-10 bg-slate-50/30 min-h-screen p-4">
+    <div className="max-w-md mx-auto space-y-6 pb-10 bg-background min-h-screen p-4">
       
       {/* HEADER DA TELA */}
       <div className="flex items-center justify-between px-1">
-        <h2 className="text-2xl font-black text-slate-800 tracking-tight">Conversas</h2>
+        <h2 className="text-2xl font-black text-foreground tracking-tight">Conversas</h2>
         <Button variant="ghost" size="icon" className="rounded-full">
-          <MoreVertical className="w-5 h-5 text-slate-400" />
+          <MoreVertical className="w-5 h-5 text-muted-foreground" />
         </Button>
       </div>
 
       {/* BUSCA ESTILIZADA */}
       <div className="relative group">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-amber-500 transition-colors" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-amber-500 transition-colors" />
         <Input
           placeholder="Buscar criadores ou produtos..."
-          className="pl-10 h-12 bg-white border-none shadow-sm rounded-2xl focus-visible:ring-2 focus-visible:ring-amber-500/20"
+          className="pl-10 h-12 bg-input-background border-none shadow-sm rounded-2xl focus-visible:ring-2 focus-visible:ring-amber-500/20"
         />
       </div>
 
       {/* FILTROS TIPO PÍLULA */}
       <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-        <Button className="rounded-full bg-slate-900 hover:bg-slate-800 text-white px-5 h-9 text-xs font-bold">
+        <Button className="rounded-full bg-secondary hover:bg-emerald-50 hover:text-emerald-900 text-secondary-foreground px-5 h-9 text-xs font-bold">
           Todas
         </Button>
-        <Button variant="outline" className="rounded-full border-slate-200 bg-white text-slate-600 px-5 h-9 text-xs font-bold gap-2">
+        <Button variant="outline" className="rounded-full border-border bg-card text-muted-foreground px-5 h-9 text-xs font-bold gap-2">
           <ShoppingBag className="w-3.5 h-3.5" /> Marketplace
         </Button>
-        <Button variant="outline" className="rounded-full border-slate-200 bg-white text-slate-600 px-5 h-9 text-xs font-bold gap-2">
+        <Button variant="outline" className="rounded-full border-border bg-card text-muted-foreground px-5 h-9 text-xs font-bold gap-2">
           <Users className="w-3.5 h-3.5" /> Comunidade
         </Button>
       </div>
@@ -79,7 +79,7 @@ export function Messages() {
           <Card 
             key={conv.id} 
             className={`p-4 cursor-pointer border-none shadow-sm hover:shadow-md transition-all relative overflow-hidden group ${
-              conv.unread > 0 ? 'bg-white ring-1 ring-amber-100' : 'bg-white/80 opacity-90'
+              conv.unread > 0 ? 'bg-card ring-1 ring-amber-100' : 'bg-card/90 opacity-90'
             }`}
           >
             {/* Indicador de Unread Lateral */}
@@ -90,7 +90,7 @@ export function Messages() {
             <div className="flex items-center gap-4">
               {/* AVATAR COM STATUS ONLINE */}
               <div className="relative">
-                <Avatar className="w-12 h-12 border border-slate-100 shadow-sm">
+                <Avatar className="w-12 h-12 border border-border shadow-sm">
                   <AvatarFallback className="bg-amber-100 text-amber-700 font-bold">
                     {conv.avatar}
                   </AvatarFallback>
@@ -103,16 +103,16 @@ export function Messages() {
               {/* CONTEÚDO DA MENSAGEM */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between mb-0.5">
-                  <h4 className={`text-sm tracking-tight ${conv.unread > 0 ? 'font-black text-slate-900' : 'font-bold text-slate-700'}`}>
+                  <h4 className={`text-sm tracking-tight ${conv.unread > 0 ? 'font-black text-foreground' : 'font-bold text-foreground/80'}`}>
                     {conv.name}
                   </h4>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-tighter">
                     {conv.time}
                   </span>
                 </div>
                 
                 <div className="flex items-center gap-2">
-                  <p className={`text-sm truncate flex-1 ${conv.unread > 0 ? 'text-slate-900 font-medium' : 'text-slate-500'}`}>
+                  <p className={`text-sm truncate flex-1 ${conv.unread > 0 ? 'text-foreground font-medium' : 'text-muted-foreground'}`}>
                     {conv.lastMessage}
                   </p>
                   
@@ -130,7 +130,7 @@ export function Messages() {
                       <ShoppingBag className="w-2.5 h-2.5" /> Negociação
                     </div>
                   ) : (
-                    <div className="flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                    <div className="flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-muted-foreground bg-muted px-2 py-0.5 rounded-md">
                       <Users className="w-2.5 h-2.5" /> Comunidade
                     </div>
                   )}
@@ -142,7 +142,7 @@ export function Messages() {
       </div>
 
       {/* BOTÃO FLUTUANTE DE NOVA MENSAGEM */}
-      <Button className="fixed bottom-24 right-6 w-14 h-14 rounded-2xl bg-slate-900 text-white shadow-xl shadow-slate-200 hover:scale-105 transition-transform">
+      <Button className="fixed bottom-24 right-6 w-14 h-14 rounded-2xl bg-secondary text-secondary-foreground shadow-xl shadow-amber-200 hover:scale-105 transition-transform">
         <MessageSquare className="w-6 h-6" />
       </Button>
     </div>

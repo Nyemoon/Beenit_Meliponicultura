@@ -41,10 +41,10 @@ export function Feed() {
   ];
 
   return (
-    <div className="max-w-md mx-auto space-y-6 pb-24 bg-slate-50/30 min-h-screen p-4">
+    <div className="max-w-md mx-auto space-y-6 pb-24 bg-background min-h-screen p-4">
       
       {/* 1. TRENDING TOPICS - Visual de Painel de Controle */}
-      <Card className="p-5 bg-white border-none shadow-sm rounded-[2rem] overflow-hidden relative">
+      <Card className="p-5 bg-card border-none shadow-sm rounded-[2rem] overflow-hidden relative">
         <div className="absolute top-0 right-0 p-3 opacity-10">
           <TrendingUp className="w-16 h-16 text-amber-600" />
         </div>
@@ -54,12 +54,12 @@ export function Feed() {
             <div className="p-2 bg-amber-500 rounded-xl">
               <TrendingUp className="w-4 h-4 text-white" />
             </div>
-            <h3 className="font-black text-slate-800 tracking-tight">Bombando na MelipoRede</h3>
+            <h3 className="font-black text-foreground tracking-tight">Bombando na MelipoRede</h3>
           </div>
           
           <div className="flex gap-2 flex-wrap">
             {["#AbelhasNativas", "#ColheitaMel", "#DivisaoDeEnxame", "#DicasDeManejo"].map((tag) => (
-              <Badge key={tag} className="bg-slate-100 hover:bg-amber-100 text-slate-600 hover:text-amber-700 border-none px-3 py-1 text-[10px] font-bold rounded-full transition-colors cursor-pointer">
+              <Badge key={tag} className="bg-muted hover:bg-amber-100 text-muted-foreground hover:text-amber-700 border-none px-3 py-1 text-[10px] font-bold rounded-full transition-colors cursor-pointer">
                 {tag}
               </Badge>
             ))}
@@ -70,7 +70,7 @@ export function Feed() {
       {/* 2. FEED DE POSTS */}
       <div className="space-y-6">
         {posts.map((post) => (
-          <Card key={post.id} className="overflow-hidden border-none shadow-sm bg-white rounded-[2.5rem]">
+          <Card key={post.id} className="overflow-hidden border-none shadow-sm bg-card rounded-[2.5rem]">
             <div className="p-5">
               
               {/* Header do Post */}
@@ -82,27 +82,27 @@ export function Feed() {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-black text-slate-800 text-sm tracking-tight">{post.author}</p>
-                    <div className="flex items-center gap-1 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+                    <p className="font-black text-foreground text-sm tracking-tight">{post.author}</p>
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-muted-foreground uppercase tracking-tighter">
                       <MapPin className="w-3 h-3 text-amber-500" /> {post.location} 
                       <span className="mx-1">•</span> 
                       <Clock className="w-3 h-3" /> {post.time}
                     </div>
                   </div>
                 </div>
-                <Button variant="ghost" size="icon" className="text-slate-300">
+                <Button variant="ghost" size="icon" className="text-muted-foreground">
                   <MoreHorizontal className="w-5 h-5" />
                 </Button>
               </div>
 
               {/* Conteúdo do Texto */}
-              <p className="mb-4 text-sm text-slate-600 leading-relaxed font-medium">
+              <p className="mb-4 text-sm text-muted-foreground leading-relaxed font-medium">
                 {post.content}
               </p>
 
               {/* Imagem do Post (com proporção de rede social moderna) */}
               {post.image && (
-                <div className="relative aspect-video rounded-[1.5rem] overflow-hidden mb-4 bg-slate-100">
+                <div className="relative aspect-video rounded-[1.5rem] overflow-hidden mb-4 bg-muted">
                   <img
                     src={post.image}
                     alt="Conteúdo do Post"
@@ -112,19 +112,19 @@ export function Feed() {
               )}
 
               {/* Ações do Post */}
-              <div className="flex items-center justify-between pt-4 border-t border-slate-50">
+              <div className="flex items-center justify-between pt-4 border-t border-border/40">
                 <div className="flex items-center gap-1">
-                  <Button variant="ghost" size="sm" className="rounded-full gap-2 text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors">
+                  <Button variant="ghost" size="sm" className="rounded-full gap-2 text-muted-foreground hover:text-emerald-900 hover:bg-emerald-50 transition-colors">
                     <Heart className="w-5 h-5" />
                     <span className="text-xs font-black">{post.likes}</span>
                   </Button>
-                  <Button variant="ghost" size="sm" className="rounded-full gap-2 text-slate-400 hover:text-amber-600 hover:bg-amber-50 transition-colors">
+                  <Button variant="ghost" size="sm" className="rounded-full gap-2 text-muted-foreground hover:text-emerald-900 hover:bg-emerald-50 transition-colors">
                     <MessageCircle className="w-5 h-5" />
                     <span className="text-xs font-black">{post.comments}</span>
                   </Button>
                 </div>
                 
-                <Button variant="ghost" size="sm" className="rounded-full text-slate-400 hover:text-blue-500 hover:bg-blue-50">
+                <Button variant="ghost" size="sm" className="rounded-full text-muted-foreground hover:text-emerald-900 hover:bg-emerald-50">
                   <Share2 className="w-5 h-5" />
                 </Button>
               </div>
@@ -134,7 +134,7 @@ export function Feed() {
       </div>
 
       {/* 3. BOTÃO DE POSTAGEM RÁPIDA (FAB) */}
-      <Button className="fixed bottom-24 right-6 w-14 h-14 rounded-2xl bg-amber-500 hover:bg-amber-600 text-white shadow-xl shadow-amber-200 transition-all hover:scale-110 active:scale-95">
+      <Button className="fixed bottom-24 right-6 w-14 h-14 rounded-2xl bg-amber-500 hover:bg-emerald-50 hover:text-emerald-900 text-white shadow-xl shadow-amber-200 transition-all hover:scale-110 active:scale-95">
         <Plus className="w-6 h-6" />
       </Button>
 

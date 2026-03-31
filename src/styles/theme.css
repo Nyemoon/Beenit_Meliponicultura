@@ -2,43 +2,43 @@
 
 :root {
   --font-size: 16px;
-  --background: #fdfbf7;
-  --foreground: #3d2f1f;
-  --card: #ffffff;
-  --card-foreground: #3d2f1f;
-  --popover: #ffffff;
-  --popover-foreground: #3d2f1f;
-  --primary: #d4a017;
-  --primary-foreground: #3d2f1f;
-  --secondary: #8b7355;
+  --background: #fff8ea;
+  --foreground: #4a3924;
+  --card: #fffdf7;
+  --card-foreground: #4a3924;
+  --popover: #fffdf7;
+  --popover-foreground: #4a3924;
+  --primary: #fff1cd;
+  --primary-foreground: #4a3924;
+  --secondary: #9f7a45;
   --secondary-foreground: #ffffff;
-  --muted: #f5f1e8;
-  --muted-foreground: #6b5d4f;
-  --accent: #7a9b59;
+  --muted: #fdf3dc;
+  --muted-foreground: #6d5638;
+  --accent: #d1a155;
   --accent-foreground: #ffffff;
   --destructive: #c44536;
   --destructive-foreground: #ffffff;
-  --border: rgba(139, 115, 85, 0.2);
+  --border: rgba(120, 91, 54, 0.2);
   --input: transparent;
-  --input-background: #f9f6ef;
-  --switch-background: #d4c4a8;
+  --input-background: #fffefb;
+  --switch-background: #ead7b4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #d4a017;
-  --chart-1: #d4a017;
-  --chart-2: #7a9b59;
-  --chart-3: #8b7355;
+  --ring: #d7a64b;
+  --chart-1: #d7a64b;
+  --chart-2: #b78b4d;
+  --chart-3: #8f6a3f;
   --chart-4: #f4c430;
-  --chart-5: #5a7a42;
+  --chart-5: #c19147;
   --radius: 0.75rem;
-  --sidebar: #fdfbf7;
-  --sidebar-foreground: #3d2f1f;
-  --sidebar-primary: #d4a017;
-  --sidebar-primary-foreground: #3d2f1f;
-  --sidebar-accent: #f5f1e8;
-  --sidebar-accent-foreground: #3d2f1f;
-  --sidebar-border: rgba(139, 115, 85, 0.2);
-  --sidebar-ring: #d4a017;
+  --sidebar: #fff8ea;
+  --sidebar-foreground: #4a3924;
+  --sidebar-primary: #d7a64b;
+  --sidebar-primary-foreground: #4a3924;
+  --sidebar-accent: #fdf3dc;
+  --sidebar-accent-foreground: #4a3924;
+  --sidebar-border: rgba(120, 91, 54, 0.2);
+  --sidebar-ring: #d7a64b;
 }
 
 .dark {
@@ -125,7 +125,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-foreground;
   }
 
   /**
