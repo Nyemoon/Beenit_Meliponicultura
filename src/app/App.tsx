@@ -5,11 +5,13 @@ import { KnowledgeBase } from "./components/KnowledgeBase";
 import { Marketplace } from "./components/Marketplace";
 import { Messages } from "./components/Messages";
 import { Profile } from "./components/Profile";
+import { Login } from "./components/Login";
 
 type Tab = "feed" | "knowledge" | "marketplace" | "messages" | "profile";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>("feed");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const tabs = [
     { id: "feed" as Tab, label: "Início", icon: Home },
@@ -18,6 +20,10 @@ export default function App() {
     { id: "messages" as Tab, label: "Mensagens", icon: MessageSquare },
     { id: "profile" as Tab, label: "Perfil", icon: User }
   ];
+
+  if (!isLoggedIn) {
+    return <Login onEnter={() => setIsLoggedIn(true)} />;
+  }
 
   return (
     <div className="min-h-screen bg-background flex flex-col max-w-md mx-auto border-x border-border/40">
