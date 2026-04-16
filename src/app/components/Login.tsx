@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BookOpen, Eye, Facebook, Lock, Mail, ShoppingCart, Users, Hexagon } from "lucide-react";
+import { BookOpen, Eye, Facebook, Lock, Mail, ShoppingCart, Users, Hexagon, Moon, Sun } from "lucide-react";
 import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -10,13 +10,25 @@ type AuthMode = "entrar" | "cadastrar";
 
 type LoginProps = {
   onEnter?: () => void;
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
 };
 
-export function Login({ onEnter }: LoginProps) {
+export function Login({ onEnter, theme, onToggleTheme }: LoginProps) {
   const [mode, setMode] = useState<AuthMode>("entrar");
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="max-w-md mx-auto min-h-screen bg-background px-6 pt-10 pb-6 flex flex-col justify-between">
+    <div className="relative max-w-md mx-auto min-h-screen bg-background px-6 pt-10 pb-6 flex flex-col justify-between">
+      <button
+        type="button"
+        onClick={onToggleTheme}
+        aria-label="Alternar tema"
+        className="absolute top-6 right-6 inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-muted text-muted-foreground hover:bg-amber-500 hover:text-white transition"
+      >
+        {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+      </button>
+
       <div className="space-y-6">
         <div className="text-center space-y-3">
           <div className="mx-auto w-16 h-16 rounded-2xl bg-amber-500 flex items-center justify-center shadow-sm">
@@ -65,8 +77,20 @@ export function Login({ onEnter }: LoginProps) {
               <Label htmlFor="senha" className="text-muted-foreground">Senha</Label>
               <div className="relative">
                 <Lock className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                <Input id="senha" type="password" placeholder="••••••••" className="pl-10 pr-10" />
-                <Eye className="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  id="senha"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="••••••••"
+                  className="pl-10 pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((current) => !current)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+                  aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+                >
+                  <Eye className="w-4 h-4" />
+                </button>
               </div>
             </div>
           </div>

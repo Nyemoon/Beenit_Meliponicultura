@@ -5,6 +5,10 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Progress } from "./ui/progress";
 
+const profileAvatar = new URL("../../images/WhatsApp Image 2026-03-21 at 15.24.19.jpeg", import.meta.url).href;
+const productPhoto1 = new URL("../../images/WhatsApp Image 2026-03-21 at 18.22.24.jpeg", import.meta.url).href;
+const productPhoto2 = new URL("../../images/WhatsApp Image 2026-03-21 at 18.26.34.jpeg", import.meta.url).href;
+
 export function Profile() {
   // ... (seus arrays de dados permanecem os mesmos, adicionei apenas o AvatarImage)
 
@@ -20,7 +24,7 @@ export function Profile() {
           <div className="flex flex-col items-center sm:flex-row sm:items-center gap-5">
             <div className="relative">
               <Avatar className="w-24 h-24 border-4 border-amber-100 shadow-md">
-                <AvatarImage src="/src/images/WhatsApp Image 2026-03-21 at 15.24.19.jpeg" />
+                <AvatarImage src={profileAvatar} />
                 <AvatarFallback className="bg-amber-500 text-white text-2xl font-bold">JS</AvatarFallback>
               </Avatar>
               <div className="absolute bottom-1 right-1 bg-green-500 w-5 h-5 rounded-full border-4 border-white" title="Online" />
@@ -30,7 +34,7 @@ export function Profile() {
               <h2 className="text-2xl font-bold text-foreground">João da Silva</h2>
               <div className="flex items-center justify-center sm:justify-start gap-1 text-muted-foreground mt-1">
                 <MapPin className="w-3.5 h-3.5 text-amber-600" />
-                <span className="text-xs font-medium">São Paulo, Brazil</span>
+                <span className="text-xs font-medium">São Paulo, Brasil</span>
               </div>
               <div className="flex gap-2 mt-3">
                 <Badge variant="secondary" className="bg-amber-100 text-amber-700 hover:bg-amber-200 border-none px-3">
@@ -123,8 +127,8 @@ export function Profile() {
 
         <div className="grid grid-cols-2 gap-3">
           {[
-            { name: "Mel de Jataí 240ml", price: "R$ 85,00", img: "/src/images/WhatsApp Image 2026-03-21 at 18.22.24.jpeg", tag: "Ativo" },
-            { name: "Caixa INPA Padrão", price: "R$ 45,00", img: "/src/images/WhatsApp Image 2026-03-21 at 18.26.34.jpeg", tag: "Esgotado" }
+            { name: "Mel de Jataí 240ml", price: "R$ 85,00", img: productPhoto1, tag: "Ativo" },
+            { name: "Caixa INPA Padrão", price: "R$ 45,00", img: productPhoto2, tag: "Esgotado" }
           ].map((item, i) => (
             <Card key={i} className="overflow-hidden border-none shadow-sm group cursor-pointer">
               <div className="relative aspect-square overflow-hidden">
